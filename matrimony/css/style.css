@@ -1,0 +1,922 @@
+*{
+    font-family: 'roboto';
+
+}
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /*  Aligns logo to left, navigation links to right  */
+    align-items: center;
+    font-family: 'roboto';
+    background-color: #141d60;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px; /*  Adjust height as needed  */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /*  Displays navigation links horizontally  */
+}
+
+.main-nav li {
+    margin-right: 20px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Hamburger menu styling (hidden by default on larger screens) */
+.hamburger-menu {
+    display: none;
+}
+
+.hamburger-menu .checkbtn {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.hamburger-menu input[type="checkbox"] {
+    display: none; /*  Hide the actual checkbox  */
+}
+
+.hamburger-menu .nav-mobile {
+    display: none; /*  Hidden by default for mobile navigation  */
+}
+
+/*  Media queries for responsiveness  */
+@media screen and (max-width: 768px) { 
+    .main-nav {
+        display: none; /*  Hide desktop navigation on smaller screens  */
+    }
+
+    .hamburger-menu {
+        display: block; /*  Show hamburger menu on smaller screens  */
+    }
+
+    .hamburger-menu input[type="checkbox"]:checked ~ .nav-mobile { /*  When checkbox is checked, display mobile navigation  */
+        display: block; 
+        position: absolute;
+        top: 70px; /* Adjust based on navbar height */
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .hamburger-menu .nav-mobile a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        border-bottom: 1px solid #555;
+    }
+}
+/*plans*/
+.navbar1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(222, 232, 236);
+    padding: 10px 20px;
+    color: black;
+    font-family: 'roboto';
+}
+
+.logo1 img {
+    height: 50px;
+
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    font-family: 'roboto';
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block; /* For proper padding and hover effect */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.register-btn {
+    background-color: #141d60;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    font-size: 24px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+/* Burger menu for smaller screens */
+.burger {
+    display: none; /* Hidden by default on larger screens */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive adjustments using media queries */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide navigation links by default */
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        left: 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show navigation links when burger menu is active */
+    }
+
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav-links a {
+        padding: 15px;
+    }
+
+    .burger {
+        display: block; /* Show burger menu on smaller screens */
+    }
+
+    .dropdown-content {
+        position: relative; /* Adjust positioning for smaller screens */
+        box-shadow: none; /* Remove box-shadow for cleaner look */
+    }
+}
+/*container*/
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 400px; /* Adjust as needed */
+    background-image: url('images/i1.webp'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    display: flex; /* Enables flexbox for content alignment */
+    align-items: center; /* Vertically centers content */
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.6); /* Grey shade with 60% opacity */
+    z-index: 1; /* Ensures overlay is above background image */
+}
+
+.content {
+    position: relative;
+    z-index: 2; /* Ensures content is above overlay */
+    padding: 20px;
+    color: white; /* Text color for readability against the grey shade */
+    text-align: left;
+    width: 80%; /* Adjust content width as needed */
+    margin-left: 5%; /* Adjust left margin for alignment */
+}
+
+.content span {
+    font-size: 1.2em; /* Adjust font size as needed */
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        width: 90%;
+        margin-left: 2%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        min-height: 300px; /* Smaller height for smaller screens */
+    }
+    .content span {
+        font-size: 1em;
+    }
+}
+.container1 {
+    width: 90%; /* Adjust as needed */
+    max-width: 1200px; /* Optional: Limit maximum width */
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    background-color: rgb(222, 232, 236);
+    padding: 20px;
+    position: relative; /* Essential for positioning the image */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    overflow: hidden; /* Clear floats within the container */
+}
+
+/* Search Section */
+
+.search-button {
+    background-color: #0a2d53; /* Blue color */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+     width:200px;
+    height: 40px;
+    margin-left: 10px; /* Space between input and button */
+}
+
+/* Buttons Section */
+.buttons-section {
+    display: flex;
+    justify-content: space-around; /* Distributes space evenly */
+    margin-bottom: 20px;
+    width:600px;
+    height: 40px;
+}
+
+.white-button {
+    flex: 1; /* Makes all buttons have equal width */
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    width:200px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 0 5px; /* Adjust spacing between buttons */
+}
+
+/* Image at bottom right */
+.image-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%; /* Adjust image width as needed */
+    max-width: 200px; /* Limit maximum image width */
+}
+
+.responsive-image {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra space below image */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .buttons-section {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+    }
+
+    .white-button {
+        margin: 5px 0; /* Adjust spacing for stacked buttons */
+    }
+
+    .image-container {
+        width: 50%; /* Adjust image width for smaller screens */
+        max-width: 150px;
+    }
+}
+/*container1*/
+.container-1 {
+    background-color: #ccc;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.center-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.left-title {
+    text-align: left; /* Align title to the right */
+    margin-bottom: 50px;
+    color: black;
+    font-size: 36px;
+}
+
+/* Card Container Styling */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
+    justify-content: center; /* Center cards horizontally */
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    background-color: #fff;
+    border: 2px solid transparent; /* Initial transparent border */
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    flex: 1 1 300px; /* Allows cards to grow, shrink, and have a base width */
+    max-width: 300px; /* Maximum width for each card */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center icon and title vertically within card */
+   
+}
+
+/* Specific Gradient Backgrounds for each Card */
+.card-1 {
+    background: linear-gradient(135deg, #ed1515, #d18888); /* Red-Orange Gradient */
+}
+
+.card-2 {
+    background: linear-gradient(135deg, #2c2c2c, #a2a2a2); /* Green Gradient */
+}
+
+.card-3 {
+    background: linear-gradient(135deg, #c1f121, #c0c37f); /* Blue Gradient */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+    border-color: #007bff; /* Highlight border on hover */
+}
+
+.card h3 {
+    color: #fff;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center; /* Center card titles */
+}
+
+.card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    text-align: center; /* Center card paragraph text */
+}
+
+/* Rocket Icon Styling */
+.icon {
+    font-size: 3em;
+    color: black; /* White icon color */
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+        align-items: center; /* Center stacked cards */
+    }
+
+    .card {
+        max-width: 90%; /* Adjust card width for smaller screens */
+    }
+}
+/*container2*/
+.container2 {
+            width: 100%;
+            max-width: 1800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(150, 236, 176);
+        }
+
+        /* Top Section Styles */
+        .top-section {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .top-section .left-image {
+            flex: 1; /* Allows the image to take up available space */
+            max-width: 300px;
+            margin-right: 20px;
+            text-align: center; /* Center image within its flex item */
+        }
+
+        .top-section .left-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .top-section .center-content {
+            flex: 2; /* Allows content to take more space than image */
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .top-section .center-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .top-section .center-content p {
+            font-size: 1.2em;
+            color: black;
+        }
+
+        .top-section .right-gradient-image {
+            flex: 1; /* Allows the image to take up available space */
+            max-width: 300px;
+            margin-left: 20px;
+            position: relative; /* For gradient overlay */
+        }
+
+        .top-section .right-gradient-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .top-section .right-gradient-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)); /* Example gradient */
+            border-radius: 8px;
+        }
+
+        /* Card Section Styles */
+        .card-columns {
+            display: flex;
+            flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+            justify-content: space-around;
+        }
+
+        .card {
+            flex: 1; /* Allows cards to take up available space */
+            min-width: 280px; /* Minimum width for cards */
+            max-width: 350px;
+            margin: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card .badge-icon {
+            font-size: 3em;
+            color: #ff6a00; /* Example badge color */
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color:black;
+        }
+
+        .card p {
+            font-size: 1em;
+            color:black;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .top-section {
+                flex-direction: column; /* Stack items vertically on smaller screens */
+            }
+
+            .top-section .left-image,
+            .top-section .center-content,
+            .top-section .right-gradient-image {
+                margin: 15px 0; /* Add vertical margins */
+                max-width: 100%; /* Take full width */
+            }
+
+            .top-section .center-content h1 {
+                font-size: 2em;
+            }
+
+            .top-section .center-content p {
+                font-size: 1em;
+            }
+
+            .card {
+                margin: 10px 0; /* Adjust card margins for smaller screens */
+            }
+        }
+.container4{
+    width: 100%; /* Make the container span the full width of the viewport */
+    overflow: hidden; /* Prevent image overflow if it exceeds container boundaries */
+    /* Optional: Set a min-height or aspect-ratio for the container if you want to control its height */
+    /* min-height: 200px; */
+    /* aspect-ratio: 16/9; */ 
+}
+
+.container4 img {
+    width: 100%; /* Make the image fill the width of its parent container */
+    height: auto; /* Allow the image height to adjust proportionally to maintain aspect ratio */
+    display: block; /* Remove any extra space below the image */
+}
+.main-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 20px solid transparent; /* Required for border-image to work */
+    background-color: rgb(222, 232, 236);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.centered-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+    gap: 30px;
+}
+
+.left-column {
+    flex: 2; /* Takes up 2/3 of the space on larger screens */
+    display: flex;
+    flex-wrap:
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card1 {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 6px solid rgb(62, 62, 227);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content within the card */
+    text-align: center;
+}
+
+.card1-image {
+    max-width: 100%;
+    height: auto;
+  border-color: 2px solid blue;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.card1 h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card1 p {
+    color: black;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.right-column {
+    flex: 1; /* Takes up 1/3 of the space on larger screens */
+    padding: 20px;
+    text-align: left;
+}
+
+.right-column h2 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.rating-system {
+    margin-bottom: 20px;
+}
+
+.stars {
+    font-size: 2em;
+    color: blue; /* Gold color for stars */
+}
+
+.star {
+    cursor: pointer;
+}
+
+.rating-value {
+    margin-top: 10px;
+    font-weight: bold;
+    color: black;
+}
+
+.view-all-button {
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.view-all-button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; /* Stack columns vertically on smaller screens */
+    }
+
+    .left-column,
+    .right-column {
+        flex: auto; /* Take full width on smaller screens */
+    }
+}
+/*container-5*/
+.container-5 {
+    width: 100%; /* Makes the container full width */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures the image doesn't overflow */
+}
+
+.container-5 img {
+    max-width: 100%; /* Allows the image to scale down */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Removes extra space below the image */
+}
+/*container6*/
+.container-6 {
+  max-width: 1800px; /* Optional: Sets a maximum width for the container */
+  margin: 0 auto; /* Centers the container horizontally */
+  background-color: rgb(231, 236, 238);
+  background-color: rgb(222, 232, 236);
+  padding: 20px; /* Adjust padding as needed */
+  text-align: center; /* Centers the title and border image horizontally */
+}
+
+h1 {
+  font-size: 2em; /* Adjust font size as needed */
+  margin-bottom: 20px; /* Space between title and border image */
+}
+
+.border-image {
+  display: block; /* Ensures the image behaves as a block element */
+  margin: 0 auto 30px auto; /* Centers the border image horizontally and adds bottom margin */
+  max-width: 100%; /* Ensures the border image doesn't overflow its container */
+}
+
+.image-grid {
+  display: grid; /* Enables CSS Grid for the layout */
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal-width columns */
+  gap: 20px; /* Adjust the gap between columns as needed */
+}
+
+.image-item img {
+  width: 300px; /* Makes images fill their respective columns */
+  height: 400px; /* Maintains the aspect ratio of images */
+  border-radius: 15px;
+  display: block; /* Removes any extra space below images */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .image-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+}
+/*container7*/
+.container-7 {
+  width: 100%; /* Ensures the container takes up the full width */
+  overflow: hidden; /* Hides any overflowing parts of the image if it has to be clipped */
+  background-color: rgb(222, 232, 236);
+  position: relative; /* Enables proper positioning of the image inside */
+}
+
+.container-7 img {
+  width: 100%; /* Scales the image to fill the container's width */
+  height: auto; /* Maintains the image's aspect ratio */
+  display: block; /* Removes any extra space below the image */
+  object-fit: cover; /* Controls how the image fits within the container (see below) */
+  object-position: center; /* Positions the image within the container (see below) */
+}
+/*footer*/
+footer {
+            background-color: #141d60;
+            color: #fff;
+            padding: 40px 20px;
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows sections to wrap on smaller screens */
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1; /* Each section takes equal space */
+            min-width: 150px; /* Minimum width before wrapping */
+            margin: 20px;
+        }
+
+        .footer-section h3 {
+            color: #f7f7f7;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 2px;
+            
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            text-decoration: none;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons .fa-instagram {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .social-icons .fa-whatsapp {
+            background-color: #25d366;
+        }
+
+        .social-icons .fa-facebook-f {
+            background-color: #3b5998;
+        }
+
+        .app-download img {
+            width: 120px; /* Adjust size as needed */
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column; /* Stack sections vertically */
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .contact-info p {
+                justify-content: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }

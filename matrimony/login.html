@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <style>
+      /* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /*  Aligns logo to left, navigation links to right  */
+    align-items: center;
+    font-family: 'roboto';
+    background-color: #141d60;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px; /*  Adjust height as needed  */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /*  Displays navigation links horizontally  */
+}
+
+.main-nav li {
+    margin-right: 20px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Hamburger menu styling (hidden by default on larger screens) */
+.hamburger-menu {
+    display: none;
+}
+
+.hamburger-menu .checkbtn {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.hamburger-menu input[type="checkbox"] {
+    display: none; /*  Hide the actual checkbox  */
+}
+
+.hamburger-menu .nav-mobile {
+    display: none; /*  Hidden by default for mobile navigation  */
+}
+
+/*  Media queries for responsiveness  */
+@media screen and (max-width: 768px) { 
+    .main-nav {
+        display: none; /*  Hide desktop navigation on smaller screens  */
+    }
+
+    .hamburger-menu {
+        display: block; /*  Show hamburger menu on smaller screens  */
+    }
+
+    .hamburger-menu input[type="checkbox"]:checked ~ .nav-mobile { /*  When checkbox is checked, display mobile navigation  */
+        display: block; 
+        position: absolute;
+        top: 70px; /* Adjust based on navbar height */
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .hamburger-menu .nav-mobile a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        border-bottom: 1px solid #555;
+    }
+}
+/*plans*/
+.navbar1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(222, 232, 236);
+    padding: 10px 20px;
+    color: black;
+    font-family: 'roboto';
+}
+
+.logo1 img {
+    height: 50px;
+
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    font-family: 'roboto';
+    font-size: 24px;
+    padding: 10px 15px;
+    display: block; /* For proper padding and hover effect */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.register-btn {
+    background-color: #141d60;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    font-size: 24px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+/* Burger menu for smaller screens */
+.burger {
+    display: none; /* Hidden by default on larger screens */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive adjustments using media queries */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide navigation links by default */
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        left: 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show navigation links when burger menu is active */
+    }
+
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav-links a {
+        padding: 15px;
+    }
+
+    .burger {
+        display: block; /* Show burger menu on smaller screens */
+    }
+
+    .dropdown-content {
+        position: relative; /* Adjust positioning for smaller screens */
+        box-shadow: none; /* Remove box-shadow for cleaner look */
+    }
+
+}
+/*dashboard*/
+.dashboard-container {
+    display: flex;
+    min-height: 100vh; /*  Ensure container takes full height  */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px; /*  Fixed width sidebar  */
+    background-color: white;
+    color: black;
+    padding: 20px;
+    box-sizing: border-box; /*  Include padding in width calculation  */
+}
+
+.user-profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-profile img {
+    width: 220px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.user-profile h3 {
+    margin: 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 15px;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: black;
+    display: flex; /*  Use flexbox for icon and text alignment  */
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+    background-color: #555;
+}
+
+.sidebar-nav i {
+    margin-right: 10px;
+}
+
+/* Main content styling */
+.main-content {
+    flex-grow: 1; /*  Main content takes remaining space  */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #e2e7e8;
+    border: 2px solid gray;
+   
+}
+
+.main-content h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap:30px;
+    justify-content:center ;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 200px; 
+    min-height: 100px;
+}
+
+.btn-primary { background-color: #007bff; }
+.btn-secondary { background-color:#dc3545; }
+.btn-success { background-color: rgb(205, 103, 205)}
+.btn-danger { background-color: #28a745;  }
+
+.dashboard-graph {
+    text-align: center; /*  Center the graph image  */
+}
+
+.dashboard-graph img {
+    max-width: 100%; /*  Ensure graph image is responsive  */
+    height: auto;
+}
+.profile{
+    text-align: left;
+    padding:40px;
+    font-weight: bold;
+}
+
+/* Responsive design using media queries */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column; /* Stack sidebar and main content vertically  */
+    }
+
+    .sidebar {
+        width: 100%; /*  Sidebar takes full width on small screens  */
+        padding: 15px;
+        text-align: center;
+    }
+
+    .user-profile {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-nav ul {
+        display: flex;
+        justify-content: space-around; /*  Distribute menu items horizontally  */
+        flex-wrap: wrap; /*  Allow items to wrap if needed  */
+    }
+
+    .sidebar-nav li {
+        margin-bottom: 10px;
+    }
+
+    .sidebar-nav a {
+        padding: 8px 12px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .dashboard-buttons button {
+        width: 150px; /* Adjust button width for smaller screens  */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-nav ul {
+        flex-direction: column; /*  Stack menu items vertically on very small screens  */
+        align-items: center;
+    }
+
+    .sidebar-nav a {
+        width: 80%; /*  Adjust link width  */
+    }
+
+    .dashboard-buttons button {
+        width: 120px; /* Further adjust button width for very small screens  */
+    }
+}
+.container {
+    width: 90%; /* Fluid width for responsiveness */
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the title */
+}
+
+h1 {
+    color:black;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.card-row {
+    display: flex; /* Arrange cards in a row using Flexbox */
+    
+    justify-content: center; /* Center cards horizontally */
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 calc(50% - 20px); /* Two cards per row, adjust for gap */
+    max-width: 1800px; /* Limit card width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex; /* Arrange image and details side-by-side */
+    align-items: flex-start; /* Align content to the top */
+    position: relative; /* For absolute positioning of buttons and subtitle */
+}
+
+.card-image {
+    margin-right: 15px;
+     height: 200px;
+}
+
+.card-image img {
+    width: 200px; /* Adjust image size */
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-details {
+    flex-grow: 1; /* Allow details to take remaining space */
+    text-align: left;
+}
+
+.card-details h3 {
+    margin-top: 0;
+    color: black;
+}
+
+.card-details p {
+    color: black;
+    margin-bottom: 10px;
+}
+
+.actions {
+    position: absolute; /* Position buttons at the top right */
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 5px;
+}
+
+.add-button, .remove-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.add-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.remove-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.subtitle {
+    position: absolute; /* Position subtitle at the bottom right */
+    bottom: 15px;
+    right: 15px;
+    font-size: 0.8em;
+    color: #999;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        flex-basis: calc(100% - 20px); /* One card per row on smaller screens */
+    }
+
+    .card-image {
+        margin-right: 10px;
+    }
+
+    .card-image img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card-details h3 {
+        font-size: 1.1em;
+    }
+
+    .card-details p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 15px;
+        flex-direction: column; /* Stack image and details vertically on very small screens */
+        align-items: center;
+    }
+
+    .card-image {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .card-details {
+        text-align: center;
+    }
+
+    .actions {
+        position: static; /* Position buttons below details on very small screens */
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .subtitle {
+        position: static; /* Position subtitle below buttons on very small screens */
+        margin-top: 5px;
+    }
+}
+/*footer*/
+footer {
+            background-color: #141d60;
+            color: #fff;
+            padding: 40px 20px;
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows sections to wrap on smaller screens */
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1; /* Each section takes equal space */
+            min-width: 150px; /* Minimum width before wrapping */
+            margin: 20px;
+        }
+
+        .footer-section h3 {
+            color: #f7f7f7;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 2px;
+            
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            text-decoration: none;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons .fa-instagram {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .social-icons .fa-whatsapp {
+            background-color: #25d366;
+        }
+
+        .social-icons .fa-facebook-f {
+            background-color: #3b5998;
+        }
+
+        .app-download img {
+            width: 120px; /* Adjust size as needed */
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column; /* Stack sections vertically */
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .contact-info p {
+                justify-content: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+</style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="Company Logo">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html"><i class="fa fa-user"></i></a></li> 
+            </ul>
+        </nav>
+        <div class="hamburger-menu"> 
+            <input type="checkbox" id="check"> 
+            <label for="check" class="checkbtn"> 
+                <i class="fa fa-bars"></i> 
+            </label> 
+            <div class="nav-mobile"> 
+                <a href="index.html">About</a> 
+                <a href="faq.html">FAQ</a> 
+                <a href="contact.html">Contact</a> 
+                <a href="login.html"><i class="fa fa-user"></i> Login</a> 
+            </div> 
+        </div>
+    </header>
+
+    <nav class="navbar1">
+        <div class="logo1">
+            <img src="images/lg1.png" alt="Company Logo"> 
+        </div>
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="explore.html" class="dropbtn">Explore <i class="fa fa-caret-down"></i></a>
+            </li>
+            <li><a href="plan.html">Plans</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="register.html"><button class="register-btn">Register</button></a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="user-profile">
+                <img src="images/pg6.jpeg" alt="User Profile Image">
+
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="login.html"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Interests</a></li>
+                    <li><a href="#"><i class="fas fa-comments"></i> Chat</a></li>
+                    <li><a href="plan.html"><i class="fas fa-calendar-alt"></i> Plan</a></li>
+                    <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <h1><a href="#">My  Profile</a> <i class="fas fa-user"></i></h1>
+          <div class="profile" >
+            <P>Name : Eleanor Pena</P>
+            <p>ID : ABC98765432</p>
+            <p>DOB : 05-05-2000</p>
+            <p>Age : 25</p>
+            <p>Gender : Female </p>
+            <p>Address : 1/3, church street ,central,chennai.</p>
+            <p>Religion : Christian</p>
+            <p>Caste : Nadar</p>
+            <p>Qualification : B.E(ECE)</p>
+            <p>Work : Office Chennai</p>
+            <p>Status : single</p>
+            <p>Heroscope : Pisces</p>
+
+            <button style="background-color: rgb(12, 12, 78); color: white;">Update Profile</button>
+
+         </div>   
+        </main>
+    </div>
+   
+
+    <div class="container">
+        <h1>New Request</h1>
+
+        <div class="card-row">
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/pp1.jpeg" alt="User Image">
+                </div>
+                <div class="card-details">
+                    <h3>John Smith</h3>
+                    <p>Age: 21</p>
+                    <p>Height : 5.7</p>
+                    <p>Job : working</p>
+                    <p>City : Chennai</p>
+                    <div class="actions">
+                        <button class="add-button">Add</button>
+                        <button class="remove-button">Remove</button>
+                    </div>
+                    <p class="subtitle">Request on : 10.30 AM, 18 April 2025</p>
+                </div>
+            </div>
+           <br>
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/PG9.jpeg" alt="User Image">
+                </div>
+                <div class="card-details">
+                    <h3>Smith K</h3>
+                    <p>Age: 25</p>
+                    <p>Height : 5.9</p>
+                    <p>Job : working</p>
+                    <p>City : Chennai</p>
+                    
+                    <div class="actions">
+                        <button class="add-button">Add</button>
+                        <button class="remove-button">Remove</button>
+                    </div>
+                   <p class="subtitle">Request on : 11.30 AM, 18 April 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="container">
+        <h1>Profile Views</h1>
+         <img src="images/graph.png" alt="images" width="80%">
+        </div>
+
+
+             <footer>
+        <div class="footer-container">
+            <div class="footer-section contact-info">
+                <h3>Get in Touch</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 123 road , Chennai</p>
+                <p><i class="fa-solid fa-phone"></i> 9876543210</p>
+                <p><i class="fa-solid fa-envelope"></i> abcmatrimony@gmail.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">About Us </a></li>
+                    <li><a href="#">COntact Us</a></li>
+                    <li><a href="#">Guide</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Safety Information</a></li>
+                    <li><a href="#">Cancellation Options</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>FOLLOW US</h3>
+                <div class="social-icons">
+                    <a href="#" target="_blank" class="fa-brands fa-instagram"></a>
+                    <a href="#" target="_blank" class="fa-brands fa-whatsapp"></a>
+                    <a href="#" target="_blank" class="fa-brands fa-facebook-f"></a>
+                </div>
+            </div>
+
+            <div class="footer-section app-download">
+                <h3>Download Our App</h3>
+                <div>
+                    <a href="#" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+                    <a href="#" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+    </html>
